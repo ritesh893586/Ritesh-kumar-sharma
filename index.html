@@ -1,0 +1,468 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#061126">
+<title>Janova Jobs | Government Job Portal</title>
+
+<style>
+:root{
+  --bg:#050d1b;
+  --panel:#0b1930;
+  --line:#1c3658;
+  --text:#edf5ff;
+  --muted:#a0b4d0;
+  --blue:#277bff;
+  --purple:#873cff;
+  --red:#ed3558;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:12px;
+  line-height:1.5;
+}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit}
+button{cursor:pointer}
+.wrap{width:94%;max-width:1400px;margin:auto}
+
+nav{
+  position:sticky;top:0;z-index:20;
+  background:#061126;
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  min-height:62px;display:flex;align-items:center;
+  justify-content:space-between;gap:12px;
+}
+.brand{font-size:21px;font-weight:900;letter-spacing:-.5px}
+.brand span{color:#628cff}
+.brand small{display:block;font-size:9px;color:var(--muted);letter-spacing:1px}
+.links{display:flex;gap:17px;align-items:center;font-size:11px}
+.links a:hover{color:#8aa9ff}
+.menu{
+  display:none;background:#102341;color:white;
+  border:1px solid var(--line);padding:7px 10px;border-radius:6px
+}
+.btn{
+  border:0;border-radius:6px;padding:9px 13px;color:white;
+  background:linear-gradient(110deg,var(--blue),var(--purple));
+  font-size:11px;font-weight:bold;
+}
+.hero{
+  background:
+  radial-gradient(ellipse at 80% 35%,#243d83 0,transparent 35%),
+  linear-gradient(120deg,#091a38,#071126 65%,#16113d);
+  border-bottom:1px solid var(--line);
+}
+.hero-inner{padding:48px 0 35px;max-width:760px}
+.pill{
+  display:inline-block;border:1px solid #3567ad;
+  border-radius:30px;padding:5px 10px;
+  color:#a9c9ff;font-size:10px;background:#12264a;margin-bottom:14px
+}
+h1{font-size:36px;line-height:1.12;letter-spacing:-1px}
+.grad{
+  background:linear-gradient(90deg,#6ba6ff,#bb76ff);
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.hero p{font-size:12px;color:#b6c9e4;margin:14px 0 19px;max-width:520px}
+.search{
+  display:flex;gap:6px;padding:5px;background:white;
+  border-radius:8px;max-width:620px
+}
+.search input{
+  flex:1;min-width:0;border:0;outline:0;padding:9px;
+  color:#102341;font-size:12px
+}
+.trending{
+  margin-top:13px;display:flex;flex-wrap:wrap;gap:6px;
+  align-items:center;font-size:10px;color:var(--muted)
+}
+.trending button{
+  background:#132746;border:1px solid #264568;
+  color:#dce9ff;border-radius:20px;padding:4px 9px;font-size:10px
+}
+.stats{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:10px;margin:19px auto
+}
+.stat{
+  padding:15px 12px;border:1px solid var(--line);border-radius:9px;
+  background:linear-gradient(145deg,#112746,#0a162a);display:block;
+  transition:.2s
+}
+.stat:hover{border-color:#477de1;transform:translateY(-2px)}
+.ico{font-size:20px}
+.stat h3{font-size:13px;margin:5px 0 2px}
+.stat p{font-size:10px;color:var(--muted)}
+.content{
+  display:grid;grid-template-columns:205px minmax(0,1fr) 220px;gap:13px
+}
+.panel{
+  border:1px solid var(--line);border-radius:9px;
+  background:linear-gradient(145deg,#0c1c34,#081529);
+  overflow:hidden;margin-bottom:13px;min-width:0
+}
+.ph{
+  padding:12px;border-bottom:1px solid var(--line);
+  font-size:13px;font-weight:800;
+  display:flex;justify-content:space-between;gap:8px
+}
+.pb{padding:12px}
+.quick a{
+  display:block;padding:9px 1px;border-bottom:1px solid #1a304b;
+  font-size:11px;color:#cfdef2
+}
+.quick a:last-child{border-bottom:0}
+.quick a:hover{color:#8baaff}
+.tabs{display:flex;overflow-x:auto;border-bottom:1px solid var(--line)}
+.tab{
+  white-space:nowrap;background:none;border:0;
+  border-bottom:2px solid transparent;padding:12px 10px;
+  color:var(--muted);font-size:10px;font-weight:bold
+}
+.tab.active{color:#91b5ff;border-color:#6489ff}
+.job{
+  display:grid;grid-template-columns:76px minmax(0,1fr) auto;
+  align-items:center;gap:9px;padding:13px 11px;
+  border-bottom:1px solid #182e49
+}
+.job:last-child{border-bottom:0}
+.job:hover{background:#10213a}
+.badge{
+  font-size:9px;font-weight:bold;text-align:center;padding:6px 3px;
+  border-radius:5px;background:#15345c;color:#8dbbff
+}
+.badge.red{background:#45182c;color:#ff9bb1}
+.badge.green{background:#103b34;color:#74e5c3}
+.badge.gold{background:#443016;color:#ffce77}
+.job h3{font-size:12px;line-height:1.5;margin-bottom:3px}
+.job p{font-size:10px;color:var(--muted)}
+.job .btn{font-size:9px;padding:7px 8px}
+.tag{
+  font-size:8px;background:#163a2e;color:#80e7b7;
+  padding:2px 5px;border-radius:3px
+}
+.updates{list-style:none}
+.updates li{
+  padding:10px 0;border-bottom:1px solid #1a304b;font-size:10px
+}
+.updates li:last-child{border:0}
+.updates small{display:block;color:var(--muted);margin-top:3px;font-size:9px}
+.dot{
+  display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:#49d6a0;margin-right:6px
+}
+.section-title{font-size:18px;margin:26px 0 13px}
+.exam-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:9px}
+.exam{
+  border:1px solid var(--line);background:var(--panel);
+  padding:12px 7px;border-radius:8px;text-align:center
+}
+.exam strong{display:block;font-size:11px}
+.exam span{font-size:9px;color:var(--muted)}
+.exam:hover{border-color:#647fff}
+.empty{padding:22px;text-align:center;color:var(--muted);display:none}
+footer{
+  margin-top:30px;padding:22px 0;border-top:1px solid var(--line);
+  color:var(--muted);font-size:10px
+}
+.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.foot a{margin-right:12px;color:#d5e2fa}
+.disclaimer{margin-top:12px;color:#8fa5c1;font-size:9px}
+
+@media(max-width:1000px){
+  .content{grid-template-columns:190px minmax(0,1fr)}
+  .right{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .exam-grid{grid-template-columns:repeat(3,1fr)}
+  .stats{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:650px){
+  .nav{min-height:56px}
+  .brand{font-size:18px}
+  .menu{display:block;font-size:10px}
+  .links{
+    display:none;position:absolute;top:56px;left:0;right:0;
+    background:#08162b;padding:14px;flex-direction:column;
+    align-items:stretch;border-bottom:1px solid var(--line)
+  }
+  .links.open{display:flex}
+  .links a{padding:5px;font-size:12px}
+  .hero-inner{padding:34px 0 25px}
+  h1{font-size:27px;letter-spacing:-.5px}
+  .hero p{font-size:11px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .stat{padding:12px 10px}
+  .stat h3{font-size:12px}
+  .content{grid-template-columns:minmax(0,1fr);gap:10px}
+  .right{display:block;grid-column:auto}
+  .job{grid-template-columns:67px minmax(0,1fr);gap:8px;padding:11px 8px}
+  .job h3{font-size:11px}
+  .job p{font-size:9px}
+  .job .btn{grid-column:2;justify-self:start}
+  .exam-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+  .exam{padding:10px 4px}
+  .section-title{font-size:16px}
+  .ph{font-size:12px}
+  .search input{font-size:11px}
+  .search .btn{font-size:10px;padding:8px}
+}
+</style>
+</head>
+
+<body>
+<nav>
+ <div class="wrap nav">
+  <a class="brand" href="#home"><span>Janova</span> Jobs
+   <small>YOUR DREAM · OUR MISSION</small></a>
+  <div class="links" id="navlinks">
+   <a href="#home">Home</a>
+   <a href="#jobs" data-navcat="Jobs">Latest Jobs</a>
+   <a href="#jobs" data-navcat="Admit Card">Admit Card</a>
+   <a href="#jobs" data-navcat="Results">Results</a>
+   <a href="#exams">Popular Exams</a>
+  </div>
+  <button class="menu" id="menu">☰ Menu</button>
+ </div>
+</nav>
+
+<section class="hero" id="home">
+ <div class="wrap">
+  <div class="hero-inner">
+   <div class="pill">✦ GOVERNMENT JOBS & EXAM UPDATES</div>
+   <h1>Find Your Dream Job<br>With <span class="grad">Janova Jobs.</span></h1>
+   <p>Government vacancies, exam results, admit cards aur admissions ki information ek hi jagah.</p>
+   <div class="search">
+    <input id="search" placeholder="Job, exam ya department search karein..." aria-label="Search">
+    <button class="btn" id="searchBtn">Search</button>
+   </div>
+   <div class="trending">Trending:
+    <button data-term="SSC">SSC</button>
+    <button data-term="Railway">Railway</button>
+    <button data-term="UPSC">UPSC</button>
+    <button data-term="Bihar">Bihar</button>
+    <button data-term="Bank">Banking</button>
+    <button data-term="JEE">JEE</button>
+   </div>
+  </div>
+ </div>
+</section>
+
+<main class="wrap">
+ <section class="stats">
+  <a class="stat" href="#jobs" data-statcat="Jobs"><div class="ico">💼</div>
+   <h3>Latest Jobs</h3><p>Vacancy notifications</p></a>
+  <a class="stat" href="#jobs" data-statcat="Admit Card"><div class="ico">🎫</div>
+   <h3>Admit Cards</h3><p>Hall ticket updates</p></a>
+  <a class="stat" href="#jobs" data-statcat="Results"><div class="ico">📊</div>
+   <h3>Results</h3><p>Exam result notices</p></a>
+  <a class="stat" href="#jobs" data-statcat="Answer Key"><div class="ico">📝</div>
+   <h3>Answer Keys</h3><p>Answer key notices</p></a>
+  <a class="stat" href="#jobs" data-statcat="Admissions"><div class="ico">🎓</div>
+   <h3>Admissions</h3><p>Admission forms</p></a>
+ </section>
+
+ <section class="content" id="jobs">
+  <aside class="left">
+   <div class="panel">
+    <div class="ph">⚡ Quick Links</div>
+    <div class="pb quick">
+     <a href="https://upsc.gov.in/" target="_blank" rel="noopener">↗ UPSC Official Website</a>
+     <a href="https://ssc.gov.in/" target="_blank" rel="noopener">↗ SSC Official Website</a>
+     <a href="https://www.rrbcdg.gov.in/" target="_blank" rel="noopener">↗ Railway Recruitment</a>
+     <a href="https://bpsc.bihar.gov.in/" target="_blank" rel="noopener">↗ BPSC Bihar</a>
+     <a href="https://www.ibps.in/" target="_blank" rel="noopener">↗ IBPS Banking</a>
+    </div>
+   </div>
+   <div class="panel">
+    <div class="ph">🔔 Stay Updated</div>
+    <div class="pb">
+     <p style="font-size:10px;color:var(--muted);margin-bottom:10px">Latest updates ke liye regular visit karein.</p>
+     <button class="btn" style="width:100%" id="notify">Enable Alerts</button>
+    </div>
+   </div>
+  </aside>
+
+  <section class="panel">
+   <div class="tabs" id="tabs">
+    <button class="tab active" data-category="All">All Updates</button>
+    <button class="tab" data-category="Jobs">Latest Jobs</button>
+    <button class="tab" data-category="Admit Card">Admit Card</button>
+    <button class="tab" data-category="Results">Results</button>
+    <button class="tab" data-category="Answer Key">Answer Key</button>
+    <button class="tab" data-category="Admissions">Admissions</button>
+   </div>
+
+   <div id="listing">
+    <article class="job" data-category="Jobs">
+     <div class="badge green">LATEST JOB</div>
+     <div><h3>SSC Recruitment <span class="tag">DEMO</span></h3>
+      <p>Staff Selection Commission · Sample listing</p></div>
+     <a class="btn" href="https://ssc.gov.in/" target="_blank" rel="noopener">Official ↗</a>
+    </article>
+    <article class="job" data-category="Jobs">
+     <div class="badge">RAILWAY</div>
+     <div><h3>Railway Recruitment <span class="tag">DEMO</span></h3>
+      <p>Railway Recruitment Boards · Sample listing</p></div>
+     <a class="btn" href="https://www.rrbcdg.gov.in/" target="_blank" rel="noopener">Official ↗</a>
+    </article>
+    <article class="job" data-category="Admit Card">
+     <div class="badge red">ADMIT CARD</div>
+     <div><h3>SSC Exam Admit Card <span class="tag">DEMO</span></h3>
+      <p>Hall ticket information · Verify official notice</p></div>
+     <a class="btn" href="https://ssc.gov.in/" target="_blank" rel="noopener">Check ↗</a>
+    </article>
+    <article class="job" data-category="Results">
+     <div class="badge">RESULT</div>
+     <div><h3>Competitive Exam Results <span class="tag">DEMO</span></h3>
+      <p>Result announcements · Sample listing</p></div>
+     <a class="btn" href="https://upsc.gov.in/" target="_blank" rel="noopener">Check ↗</a>
+    </article>
+    <article class="job" data-category="Answer Key">
+     <div class="badge" style="background:#34205e;color:#d2b8ff">ANSWER KEY</div>
+     <div><h3>Exam Answer Key <span class="tag">DEMO</span></h3>
+      <p>Answer key information · Sample listing</p></div>
+     <a class="btn" href="https://ssc.gov.in/" target="_blank" rel="noopener">Check ↗</a>
+    </article>
+    <article class="job" data-category="Admissions">
+     <div class="badge gold">ADMISSION</div>
+     <div><h3>College Admission Updates <span class="tag">DEMO</span></h3>
+      <p>Application information · Sample listing</p></div>
+     <a class="btn" href="https://www.nta.ac.in/" target="_blank" rel="noopener">Check ↗</a>
+    </article>
+   </div>
+
+   <div class="empty" id="empty">Koi update nahi mila.</div>
+   <div style="padding:12px;color:var(--muted);font-size:9px">
+    Demo listings hain. Vacancy, eligibility aur dates official notice se verify karein.
+   </div>
+  </section>
+
+  <aside class="right">
+   <div class="panel">
+    <div class="ph">⚡ Latest Updates</div>
+    <div class="pb">
+     <ul class="updates">
+      <li><span class="dot"></span>SSC recruitment information
+       <small>Demo · Official notice check karein</small></li>
+      <li><span class="dot" style="background:#ff5a78"></span>Railway recruitment information
+       <small>Demo · Official notice check karein</small></li>
+      <li><span class="dot" style="background:#6b9cff"></span>Bihar examination information
+       <small>Demo · Official notice check karein</small></li>
+      <li><span class="dot" style="background:#b58aff"></span>Admission notifications
+       <small>Demo · Official notice check karein</small></li>
+     </ul>
+    </div>
+   </div>
+   <div class="panel">
+    <div class="ph">💡 Career Tip</div>
+    <div class="pb">
+     <h3 style="font-size:13px">Prepare Smartly</h3>
+     <p style="font-size:10px;color:var(--muted);margin:8px 0 12px">
+      Official syllabus dekhein aur previous papers solve karein.
+     </p>
+     <a href="#exams" class="btn" style="display:inline-block">Explore Exams →</a>
+    </div>
+   </div>
+  </aside>
+ </section>
+
+ <h2 class="section-title" id="exams">✦ Popular Exam Categories</h2>
+ <section class="exam-grid">
+  <a class="exam" href="https://upsc.gov.in/" target="_blank" rel="noopener"><strong>🏛 UPSC</strong><span>Civil Services</span></a>
+  <a class="exam" href="https://ssc.gov.in/" target="_blank" rel="noopener"><strong>🎯 SSC</strong><span>CGL / CHSL / MTS</span></a>
+  <a class="exam" href="https://www.rrbcdg.gov.in/" target="_blank" rel="noopener"><strong>🚆 Railway</strong><span>RRB Exams</span></a>
+  <a class="exam" href="https://www.ibps.in/" target="_blank" rel="noopener"><strong>🏦 Banking</strong><span>IBPS Exams</span></a>
+  <a class="exam" href="https://bpsc.bihar.gov.in/" target="_blank" rel="noopener"><strong>📚 Bihar</strong><span>State Exams</span></a>
+  <a class="exam" href="https://www.nta.ac.in/" target="_blank" rel="noopener"><strong>🎓 NTA</strong><span>Entrance Exams</span></a>
+ </section>
+</main>
+
+<footer>
+ <div class="wrap foot">
+  <a class="brand" href="#home"><span>Janova</span> Jobs<small>YOUR DREAM · OUR MISSION</small></a>
+  <div><a href="#home">Home</a><a href="#jobs">Updates</a><a href="#exams">Exams</a></div>
+ </div>
+ <div class="wrap disclaimer">
+  Janova Jobs is an independent information portal, not affiliated with any government department. Sample listings are not actual vacancy announcements. Always verify details on official websites.
+  <p style="margin-top:8px">© <span id="year"></span> Janova Jobs. All rights reserved.</p>
+ </div>
+</footer>
+
+<script>
+const search=document.getElementById("search");
+const listing=document.getElementById("listing");
+const items=[...listing.querySelectorAll(".job")];
+const empty=document.getElementById("empty");
+const tabs=[...document.querySelectorAll(".tab")];
+let category="All";
+
+function render(){
+ let shown=0;
+ const q=search.value.trim().toLowerCase();
+
+ items.forEach(item=>{
+  const catMatch=category==="All"||item.dataset.category===category;
+  const textMatch=item.textContent.toLowerCase().includes(q);
+  const visible=catMatch&&textMatch;
+  item.style.display=visible?"grid":"none";
+  if(visible)shown++;
+ });
+
+ empty.style.display=shown?"none":"block";
+}
+
+function setCategory(value){
+ category=value;
+ tabs.forEach(t=>t.classList.toggle("active",t.dataset.category===value));
+ render();
+ document.getElementById("jobs").scrollIntoView({behavior:"smooth"});
+}
+
+tabs.forEach(t=>t.addEventListener("click",()=>setCategory(t.dataset.category)));
+
+document.querySelectorAll("[data-statcat]").forEach(card=>{
+ card.addEventListener("click",()=>setCategory(card.dataset.statcat));
+});
+
+document.querySelectorAll("[data-navcat]").forEach(link=>{
+ link.addEventListener("click",()=>setCategory(link.dataset.navcat));
+});
+
+document.querySelectorAll("[data-term]").forEach(button=>{
+ button.addEventListener("click",()=>{
+  search.value=button.dataset.term;
+  setCategory("All");
+ });
+});
+
+document.getElementById("searchBtn").addEventListener("click",render);
+search.addEventListener("input",render);
+
+document.getElementById("menu").addEventListener("click",()=>{
+ document.getElementById("navlinks").classList.toggle("open");
+});
+
+document.querySelectorAll("#navlinks a").forEach(a=>{
+ a.addEventListener("click",()=>{
+  document.getElementById("navlinks").classList.remove("open");
+ });
+});
+
+document.getElementById("year").textContent=new Date().getFullYear();
+
+document.getElementById("notify").addEventListener("click",()=>{
+ alert("Job alerts abhi demo hain. Automatic notifications ke liye backend integration zaroori hai.");
+});
+
+render();
+</script>
+</body>
+</html>
